@@ -1,19 +1,23 @@
 library(shiny)
 
 shinyUI(fluidPage(withMathJax(),
-    titlePanel(span("Intervallschätzer", style="color:white"),
-               windowTitle="Intervallschätzer"),
+    titlePanel(span("Intervallschätzer", style = "color:white"),
+               windowTitle = "Intervallschätzer"),
         
-    sidebarLayout(position="right",
+    sidebarLayout(position = "right",
         sidebarPanel(
         wellPanel(style = "background-color: #FFFFFF;", h5("Bedienfenster"),
-        sliderInput('Significance.Level', 'Signifikanzniveau (%)', value=5, min=0,max=50, step=1,),
-        sliderInput('Standard.Deviation', 'Varianz der Störgrößen \\( ({\\sigma}^2) \\)', value=10, min=0,max=100, step=1,),
-        sliderInput('Number.of.Observation', 'Beobachtungsumfang \\( (T) \\)', value=10, min=3 , max=1000, step=1,),
-        sliderInput('Number.of.Intervalls', 'Stichproben \\( (S) \\)', value=100, min=1, max=100, step=1,),
+        sliderInput('Significance.Level', 'Signifikanzniveau (%)',
+                    value = 5, min = 0,max = 50, step = 1,),
+        sliderInput('Standard.Deviation', 'Varianz der Störgrößen \\( ({\\sigma}^2) \\)',
+                    value = 10, min = 0,max = 100, step = 1,),
+        sliderInput('Number.of.Observation', 'Beobachtungsumfang \\( (T) \\)',
+                    value = 10, min = 3 , max = 1000, step = 1,),
+        sliderInput('Number.of.Intervalls', 'Stichproben \\( (S) \\)',
+                    value = 100, min = 1, max = 100, step = 1,),
         br(),
         br(),
-        shinysky::actionButton('action', 'Stichprobenerzeugung', styleclass='success'),
+        shinysky::actionButton('action', 'Stichprobenerzeugung', styleclass = 'success'),
         downloadButton('downloadPlot', 'Grafik herunterladen')),
         tags$head(
             tags$style(type="text/css", ".jslider { max-width: 300px; }")
@@ -23,12 +27,12 @@ shinyUI(fluidPage(withMathJax(),
         br(),
         br(),
         br(),
-        wellPanel(p(strong("Redaktion"), style='margin-bottom:1px;color:black;'),
+        wellPanel(p(strong("Redaktion"), style = 'margin-bottom:1px;color:black;'),
             HTML("<p style='margin-bottom:1px;color:black;'>Programmierung: Andranik Stepanyan</p>"),
-            p("Text: Ludwig von Auer", style="color:black"),
+            p("Text: Ludwig von Auer", style = "color:black"),
             HTML("<a , style='margin-bottom:1px;color:black;' href = 'https://www.uni-trier.de/index.php?id=50126' target='_blank'>Professur für Finanzwissenschaft</a>"),
             p("Fachbereich IV - Volkswirtschaftslehre", style = 'margin-bottom:1px;color:black;'),
-            p("Universität Trier", style="color:black"),
+            p("Universität Trier", style = "color:black"),
             p(strong("Lehrbuch"), style = 'margin-bottom:1px; color:black;'),
             HTML("<p style = 'color:black;'>Auer, Ludwig <a href = 'https://www.uni-trier.de/index.php?id=15929' target='_blank'><img src='buch.jpg' style='float: right;'></a>von (2013),
                 <a href = 'https://www.uni-trier.de/index.php?id=15929' target='_blank' style='color:black'>Ökonometrie - eine Einführung,<br>
@@ -38,7 +42,7 @@ shinyUI(fluidPage(withMathJax(),
         br(),
         HTML('<div class="btn-group dropup">
             <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
-            Weitere Animationen
+            Weitere Animationen 
             <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
@@ -50,14 +54,14 @@ shinyUI(fluidPage(withMathJax(),
                               							 
             </ul>
             </div>')),
-        list(tags$head(tags$style("body {background-color: #6d6d6d; }")))
+        list(tags$head(tags$style("body {background-color: #6d6d6d;}")))
                       
                                   
                             
         ),
         mainPanel(
              wellPanel(wellPanel(style = "background-color: #FFFFFF;",
-                        plotOutput("intervallPlot", height="600px"))),
+                        plotOutput("intervallPlot", height = "600px"))),
                             
             wellPanel(style = "background-color: #DEEBF7;", tabsetPanel(type = "pills",
                         tabPanel(h5("Was wird veranschaulicht?"),
@@ -66,7 +70,7 @@ shinyUI(fluidPage(withMathJax(),
       für den Steigungsparameter \\( \\beta \\) ein neues Intervall.
       In der Animation können Sie den Einfluss des Signifikanzniveaus,
       der Störgrößenvarianz und des Beobachtungsumfangs auf die Gestalt
-      der erzeugten Intervalle studieren.", style="color:black") ), 
+      der erzeugten Intervalle studieren.", style = "color:black") ), 
     
         tabPanel(h5("Was zeigt die Anfangseinstellung?"),
     p("Die Animation greift das Trinkgeld-Beispiel des Lehrbuches auf. Für
@@ -92,7 +96,7 @@ shinyUI(fluidPage(withMathJax(),
     den Parameterwert \\( \\beta =0,13 \\). Die schwarzen Intervalle
     überdecken diesen Wert, die roten hingegen nicht. Die Anzahl und der
     Anteil der roten Intervalle ist links oben in der Grafik
-    angezeigt.</p>"), style="color:black")),
+    angezeigt.</p>"), style = "color:black")),
     
         tabPanel(h5("Benutzungshinweise"), 
     p(HTML('<p style="color:black;">Im Bedienfenster sehen Sie verschiedene
